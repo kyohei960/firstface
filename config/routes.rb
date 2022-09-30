@@ -1,52 +1,5 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/complete'
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :public do
-    get 'cart_items/index'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/unsubscribe'
-  end
-  namespace :public do
-    get 'items/show'
-    get 'items/index'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
-  namespace :admin do
-    get 'items/index'
-    get 'items/show'
-    get 'items/edit'
-    get 'items/new'
-  end
-  namespace :admin do
-    get 'sessions/new'
-  end
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
-  namespace :admin do
-    get 'orders/show'
-  end
-  namespace :admin do
-    get 'customers/admin'
-  end
+
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
@@ -55,5 +8,19 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+    scope module: :public do
+    root to: "homes#top"
+    get '/about' => 'homes#about', as: 'about'
+    
+    resources :items, only: [:index, :show]
+    
+    get '/mypage' => 'public#show'
+    get '/mypage' => 'public#edit'
+    patch '/mypage' => 'public#update'
+    get '/mypage/unsubscribe' => 'public#unsubscribe', as: 'unsubscribe'
+    patch '/mypage/withdraw' => 'public#withdraw', as: 'withdraw'
+    
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items, only: [:index, :update, :destroy, :create]
+    end
 end
