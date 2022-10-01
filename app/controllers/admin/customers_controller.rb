@@ -1,19 +1,14 @@
 class Admin::CustomersController < ApplicationController
-  def admin/orders
+  def index
   end
 
-  def admin/order_details
+  def show
   end
 
-  def admin/genres
+  def edit
   end
 
-  def admin/items
+  def update
   end
 
-  def admin/homes
-  end
-
-  def admin/sessions
-  end
 end
