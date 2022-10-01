@@ -10,4 +10,11 @@ class Public::OrdersController < ApplicationController
 
   def show
   end
+  
+  def confirmation 
+  end 
+  
+  def create
+  end 
+  
 end
