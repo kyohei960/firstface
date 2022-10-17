@@ -1,1 +1,10 @@
+<% @items.each do |item| %>
+  <%= link_to item_path(item.id) do %>
+    <%= image_tag item.get_image(200, 200) %><br>
+    <%= item.name %>
+  <% end %>
+  
+  <%= item.price %>(税抜)
+<% end %>
+
 
