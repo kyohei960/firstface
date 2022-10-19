@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
   def index
+    @items = Item.all
   end
 
   def show
@@ -9,6 +10,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
   end
   
   def create
