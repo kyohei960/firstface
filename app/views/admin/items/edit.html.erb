@@ -1,2 +1,5 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<h2>商品編集</h2>
+<%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
+<p>商品画像</p>
+<%= f.file_field :image, accept: "image/*", class: "form-control-file item_image" %>
+
