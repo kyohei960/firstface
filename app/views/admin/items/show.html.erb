@@ -1,1 +1,13 @@
+<h3>商品詳細</h3>
+<%= image_tag @item.get_image(300, 300) %>
 
+<p>商品名</p>
+<div><%= @item.name %></div>
+
+<p>商品説明</p>
+<div><%= @item.description %></div>
+
+<P>ジャンル</P>
+<div><%= @item.genre.name %></div>
+
+<%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success" %> %>
