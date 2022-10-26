@@ -10,4 +10,6 @@
 <P>ジャンル</P>
 <div><%= @item.genre.name %></div>
 
-<%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success" %> %>
+<div>
+    <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success" %>
+</div>
